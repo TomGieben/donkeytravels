@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donkeytravels</title>
 
+    <!-- Rel icon  -->
+    <link rel="icon" href="/assets/images/icon.png" type="image/icon type">
+
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/styles/style.css">
 
@@ -20,7 +23,7 @@
 </head>
 <body>
 <?php 
-    @include('load.php');
+    @include('preload.php');
     @include('navigation.php'); 
 ?>
 

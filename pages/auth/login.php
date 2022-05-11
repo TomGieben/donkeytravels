@@ -15,7 +15,7 @@
   <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
   <div class="text-center mt-4">
-    <p>Not a member? <a href="#!">Register</a></p>
+    <p>Not a member? <button type="button" onclick="redirect('auth/register')" class="btn btn-link">Register</button></p>
   </div>
 </form>
 </div>

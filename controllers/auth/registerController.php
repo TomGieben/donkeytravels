@@ -1,2 +1,2 @@
 <?php
-@include('load.php');
+@include('preload.php');

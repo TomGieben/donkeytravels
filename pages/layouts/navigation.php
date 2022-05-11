@@ -6,7 +6,7 @@
     <button class="nav-link btn btn-link" onclick="">Contact</button>
   </li>
   <li class="nav-item">
-    <button class="nav-link btn btn-link" onclick="redirect('auth/register')">Login</button>
+    <button class="nav-link btn btn-link" onclick="redirect('auth/login')">Login</button>
   </li>
   <li class="nav-item">
     <button class="nav-link btn btn-link" onclick="redirect('auth/register')">Register</button>

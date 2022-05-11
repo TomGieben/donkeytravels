@@ -1,6 +1,6 @@
 <?php
 
-//Load all configs
+//Load all helpers
 foreach (glob("/helpers/*.php") as $filename) {
     include $filename;
 }
