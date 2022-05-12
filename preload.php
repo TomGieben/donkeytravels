@@ -9,6 +9,6 @@ foreach (glob("/helpers/*.php") as $filename) {
 connection();
 
 //Checks if user has logged in
-if(!auth()) {
-    redirect('auth/login');
-}
+// if(!auth()) {
+//     redirect('auth/login');
+// }
