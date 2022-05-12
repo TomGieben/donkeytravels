@@ -26,5 +26,3 @@
     @include('preload.php');
     @include('navigation.php'); 
 ?>
-
-
