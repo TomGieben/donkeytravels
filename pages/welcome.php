@@ -1,1 +1,1 @@
-<?php @include('../layouts/layout.php') ?>
+<?php include('layouts/layout.php') ?>

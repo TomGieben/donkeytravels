@@ -1,14 +1,27 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <button class="nav-link btn btn-link" onclick="">Home</button>
-  </li>
-  <li class="nav-item">
-    <button class="nav-link btn btn-link" onclick="">Contact</button>
-  </li>
-  <li class="nav-item">
-    <button class="nav-link btn btn-link" onclick="redirect('auth/login')">Login</button>
-  </li>
-  <li class="nav-item">
-    <button class="nav-link btn btn-link" onclick="redirect('auth/register')">Register</button>
-  </li>
-</ul>
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" onclick="redirect('welcome')">
+        <img src="/assets/images/icon.png" alt="Logo" class="icon">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a onclick="redirect('welcome')" class="btn">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a onclick="redirect('auth/login')" class="btn">
+            <i class="fas fa-user"></i>
+            Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

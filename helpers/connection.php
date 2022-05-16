@@ -1,7 +1,6 @@
 <?php
-
     function connection() {
-        $config = include('../configs/database.php');
+        $config = include $_SERVER['DOCUMENT_ROOT'] . '/configs/database.php';
 
         try {
             $servername = $config['servername'];
@@ -11,8 +10,8 @@
 
             $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully";
+            errorLog("Connected successfully: " . $e->getMessage());
           } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+            errorLog("Connection failed: " . $e->getMessage());
           }
     }

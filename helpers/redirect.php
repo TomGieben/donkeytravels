@@ -1,4 +1,4 @@
 <?php
-    function redirect($file = null) {
-        return "../index.php?redirect=".$file."";
+    function redirect($file) {
+        header("Location: ../index.php?redirect=".$file."");
     }
