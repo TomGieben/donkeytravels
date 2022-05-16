@@ -11,13 +11,31 @@ foreach (glob($_SERVER['DOCUMENT_ROOT'] . "/helpers/*.php") as $filename) {
 connection();
 
 // Checks if user has logged in
-if(pageName() !== 'register' && pageName() !== 'login') {
-    if(!auth()) {
-        redirect('auth/login');
+$exepctions = [
+    'register',
+    'login',
+    'controller',
+];
+
+foreach($exepctions as $exception) {
+    if(pageName() == $exception) {
+        $check = false;
+    } elseif(strpos(pageName(), $exception) !== false) {
+        $check = false;
+    } else {
+        $check = true;
+    }
+
+    if(!$check) {
+        break;
     }
 }
 
-
+if($check) {
+    if(!auth()) {
+        redirect('auth/login');
+    }    
+}
 // Set page name
 $output = ob_get_contents();
 if (ob_get_length() > 0) { ob_end_clean(); }

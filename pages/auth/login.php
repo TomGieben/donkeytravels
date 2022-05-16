@@ -2,13 +2,15 @@
 
 <div class="container">
 <form action="/controllers/auth/loginController.php" method="post">
+  <input type="hidden" name="function" value="create"/>
+
   <div class="form-outline mb-4">
-    <input type="email" id="email" class="form-control" />
+    <input type="email" id="email" name="email" class="form-control" />
     <label class="form-label" for="email">Email</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input type="password" id="password" class="form-control" />
+    <input type="password" id="password" name="password" class="form-control" />
     <label class="form-label" for="password">Wachtwoord</label>
   </div>
 
