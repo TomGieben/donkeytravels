@@ -1,5 +1,7 @@
 <?php
 
+$_SESSION['auth'] = true;
+
 //Redirect to page from redirect() function
 if(isset($_GET['redirect'])) {
     if(isset($_SESSION['auth'])) {
