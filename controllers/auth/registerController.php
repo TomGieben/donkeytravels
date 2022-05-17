@@ -35,5 +35,5 @@
             setWith('msg', $msg);
             redirect('auth/register');
     } else {
-        redirect('auth/login');
+        redirect('auth/register');
     }
