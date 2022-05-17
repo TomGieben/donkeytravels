@@ -20,4 +20,3 @@ if(isset($_GET['redirect'])) {
         header("location: pages/".$_GET['redirect'].".php");
     }
 }
-
