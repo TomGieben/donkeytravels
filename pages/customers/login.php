@@ -19,5 +19,6 @@
   <div class="text-center mt-4">
     <p>Geen account? <button type="button" onclick="redirect('customers/register')" class="btn btn-link">Register</button></p>
   </div>
+</form>
 </div>
 
