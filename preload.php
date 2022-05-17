@@ -7,9 +7,6 @@ foreach (glob($_SERVER['DOCUMENT_ROOT'] . "/helpers/*.php") as $filename) {
     include $filename;
 }
 
-// Connect to database
-connection();
-
 // Checks if user has logged in
 $exepctions = [
     'register',

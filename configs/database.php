@@ -4,4 +4,5 @@
         'username' => 'root',
         'password' => '',
         'database' => 'donkeytravel',
+        'charset' => 'utf8mb4',
     ];
