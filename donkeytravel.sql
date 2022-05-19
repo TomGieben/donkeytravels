@@ -21,6 +21,7 @@ USE `donkeytravel`;
 CREATE TABLE IF NOT EXISTS `boekingen` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Startdatum` datetime(6) NOT NULL,
+  `Einddatum` datetime(6) NOT NULL,
   `PINcode` int(11) NOT NULL,
   `TochtID` int(11) NOT NULL,
   `KlantID` int(11) NOT NULL,
