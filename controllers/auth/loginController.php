@@ -2,7 +2,20 @@
     include $_SERVER['DOCUMENT_ROOT'] . '/preload.php';
 
     if($_POST['function'] == 'create') {
-        
+        $create = true;
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+        $datetime = date('Y-m-d H:i:s');
+        $msg = 'Succesvol geregistreerd.';
+        $stmt = $pdo->prepare("SELECT Email, WachtwoordHash FROM medewerkers WHERE Email = ?;");
+        $stmt->execute([$email]);
+        $users = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($email !== $users['WachtwoordHash']) {
+            
+        }
+
+
     } else {
         redirect('auth/login');
     }
