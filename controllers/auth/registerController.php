@@ -4,6 +4,7 @@
     if($_POST['function'] == 'create') {
         $create = true;
         $password = $_POST['password'];
+        $confirmPassword = $_POST['password-confirm'];
         $email = $_POST['email'];
         $datetime = date('Y-m-d H:i:s');
         $msg = 'Succesvol geregistreerd.';
@@ -34,7 +35,7 @@
             $sql = "INSERT INTO `medewerkers` (Email, WachtwoordHash, Gewijzigd) VALUES (?,?,?);";
             $pdo->prepare($sql)->execute([
                 $email, 
-                password_hash($password, PASSWORD_DEFAULT), 
+                password_hash($password, PASSWORD_ARGON2ID), 
                 $datetime
             ]);
         }

@@ -1,10 +1,8 @@
 <?php
-
-$_SESSION['auth'] = true;
-
+session_start();
 //Redirect to page from redirect() function
 if(isset($_GET['redirect'])) {
-    if(isset($_SESSION['auth'])) {
+    if($_SESSION['auth']) {
         header("location: pages/".$_GET['redirect'].".php");
     } else {
         if($_GET['redirect'] == 'auth/register') {
@@ -15,7 +13,7 @@ if(isset($_GET['redirect'])) {
         }
     }
 } else {
-    if(isset($_SESSION['auth'])) {
+    if($_SESSION['auth']) {
         header("location: pages/welcome.php");
     } else {
         $_GET['redirect'] = 'auth/login';

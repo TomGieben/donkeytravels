@@ -9,12 +9,27 @@
         $msg = 'Succesvol geregistreerd.';
         $stmt = $pdo->prepare("SELECT Email, WachtwoordHash FROM medewerkers WHERE Email = ?;");
         $stmt->execute([$email]);
-        $users = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($email !== $users['WachtwoordHash']) {
-            
+        if($user) {
+            if(password_verify($password, $user["WachtwoordHash"])) {
+                $_SESSION['auth'] = true;
+                $_SESSION['user'] = $user;
+
+                setWith('msg', $msg);
+                redirect('welcome');
+            } else {
+                $msg = 'Gegevens komen niet overeen probeer het opnieuw.';
+
+                setWith('msg', $msg);
+                redirect('auth/login');
+            }
+        } else {
+            $msg = 'Je bent niet geregistreerd.';
+
+            setWith('msg', $msg);
+            redirect('auth/register');
         }
-
 
     } else {
         redirect('auth/login');
