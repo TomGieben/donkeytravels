@@ -12,8 +12,14 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a onclick="redirect('welcome')" class="btn">Home</a></li>
-        <li><a onclick="redirect('status/index')" class="btn">Statussen</a></li>
+        <li><a onclick="redirect('welcome')" class="btn"><i class="fas fa-house"></i> Home</a></li>
+        <li><a onclick="redirect('status/index')" class="btn"><i class="fas fa-signal"></i> Statussen</a></li>
+        <li><a onclick="redirect()" class="btn"><i class="fas fa-book-atlas"></i> Boekingen</a></li>
+        <li><a onclick="redirect()" class="btn"><i class="fas fa-house-chimney"></i> Herbergen</a></li>
+        <li><a onclick="redirect()" class="btn"><i class="fas fa-users"></i> Klanten</a></li>
+        <li><a onclick="redirect()" class="btn"><i class="fas fa-bed-front"></i> Overnachtingen</a></li>
+        <li><a onclick="redirect()" class="btn"><i class="fas fa-bagel"></i> Pauzeplaatsen</a></li>
+        <li><a onclick="redirect()" class="btn"><i class="fas fa-person-walking"></i> Tochten</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
