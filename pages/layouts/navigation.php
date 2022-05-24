@@ -15,12 +15,27 @@
         <li><a onclick="redirect('welcome')" class="btn">Home</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a onclick="redirect('auth/login')" class="btn">
-            <i class="fas fa-user"></i>
-            Login
-          </a>
-        </li>
+        <?php
+        if(!$_SESSION['auth']) {
+          echo '
+            <li>
+              <a onclick="redirect("auth/login")" class="btn">
+                <i class="fas fa-user"></i>
+                Login
+              </a>
+            </li>
+          ';
+        } else {
+          echo '
+            <li>
+              <a onclick="redirect("auth/logout")" class="btn">
+                <i class="fas fa-user"></i>
+                Logout
+              </a>
+            </li>
+          ';
+        }
+        ?>
       </ul>
     </div>
   </div>
