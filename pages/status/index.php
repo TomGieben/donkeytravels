@@ -2,10 +2,10 @@
     include('../layouts/layout.php'); 
     $stmt = $pdo->prepare("SELECT * FROM Statussen");
     $stmt->execute();
-    $statussen = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <div class="container">
+    <?php getWith('msg') ?>
     <a onclick='redirect("status/create")' class='btn btn-success' style="margin: 1em;">
         <i class='fas fa-plus'></i>
     </a>
@@ -21,8 +21,9 @@
         </thead>
         <tbody>
             <?php
-                if($statussen) {
-                    foreach($statussen as $status) {
+                if($stmt) {
+                    while ($status = $stmt->fetch(PDO::FETCH_ASSOC))
+                    {
                         echo "
                             <tr>
                                 <td>".$status['Statuscode']."</td>
@@ -36,16 +37,16 @@
                                 echo "<i class='fas fa-times text-danger'></i>";
                             }
                         echo "</td>"; 
-                        echo "
+                        echo '
                             <td>
-                                <a onclick='redirect('status/edit')' class='btn btn-warning'>
-                                    <i class='fas fa-pencil'></i>
+                                <a href="../status/edit.php?id='.$status['ID'].'" class="btn btn-warning">
+                                    <i class="fas fa-pencil"></i>
                                 </a>
-                                <a onclick='redirect('status/destroy')' class='btn btn-danger'>
-                                    <i class='fas fa-trash'></i>
+                                <a href="../status/destroy.php?id='.$status['ID'].'" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
                                 </a>
                             </td>
-                        "; 
+                        '; 
                         echo "</tr>";
                     }
                 }
