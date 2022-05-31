@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `medewerkers` (
   `WachtwoordHash` text,
   `Gewijzigd` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- Data exporteren was gedeselecteerd
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `statussen` (
   `Statuscode` tinyint(4) NOT NULL,
   `Status` varchar(40) NOT NULL,
   `Verwijderbaar` tinyint(4) NOT NULL,
-  `PIN` tinyint(4) NOT NULL,
+  `PIN` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
