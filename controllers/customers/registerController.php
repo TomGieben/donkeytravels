@@ -40,7 +40,7 @@
                     if($create) {
                         $sql = "INSERT INTO `klanten` (Naam, Email, Telefoon, Wachtwoord, Gewijzigd) VALUES (?,?,?,?,?);";
                         $pdo->prepare($sql)->execute([
-                            $name, $email, $phone_number, $password, $datetime
+                            $name, $email, $phone_number, password_hash($password, PASSWORD_ARGON2ID), $datetime
                         ]);
                     }
                 
