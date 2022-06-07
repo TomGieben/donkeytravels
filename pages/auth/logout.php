@@ -1,4 +1,5 @@
 <?php
-    include('../layouts/layout.php'); 
     $_SESSION['auth'] = false;
-    redirect('auth/login');
+    $file = 'auth/login';
+    
+    header("Location: http://" . $_SERVER['SERVER_NAME'] ."/index.php?redirect=".$file."");
