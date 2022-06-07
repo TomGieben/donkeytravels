@@ -5,8 +5,11 @@
 ?>
 
 <div class="container">
+    <h1>
+        <b>Statussen</b>
+    </h1>
     <?php getWith('msg') ?>
-    <a onclick='redirect("status/create")' class='btn btn-success' style="margin: 1em;">
+    <a onclick='redirect("status/create")' class='btn btn-success' style="margin-bottom: 1em;">
         <i class='fas fa-plus'></i>
     </a>
     <table class="table">
