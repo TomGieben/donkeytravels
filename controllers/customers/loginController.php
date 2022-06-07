@@ -7,7 +7,7 @@
         $email = $_POST['email'];
         $datetime = date('Y-m-d H:i:s');
         $msg = 'Succesvol geregistreerd.';
-        $stmt = $pdo->prepare("SELECT Email, Wachtwoord FROM medewerkers WHERE Email = ?;");
+        $stmt = $pdo->prepare("SELECT Email, Wachtwoord FROM klanten WHERE Email = ?;");
         $stmt->execute([$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
