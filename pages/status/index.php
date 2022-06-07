@@ -39,10 +39,10 @@
                         echo "</td>"; 
                         echo '
                             <td>
-                                <a href="../status/edit.php?id='.$status['ID'].'" class="btn btn-warning">
+                                <a href="edit.php?id='.$status['ID'].'" class="btn btn-warning">
                                     <i class="fas fa-pencil"></i>
                                 </a>
-                                <a href="../status/destroy.php?id='.$status['ID'].'" class="btn btn-danger">
+                                <a href="destroy.php?id='.$status['ID'].'" class="btn btn-danger">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
