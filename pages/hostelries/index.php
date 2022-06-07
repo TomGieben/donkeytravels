@@ -37,7 +37,11 @@
                                         '.$hostelry['Email'].'
                                     </a>
                                 </td> 
-                                <td>'.$hostelry['Telefoon'].'</td> 
+                                <td>
+                                    <a href="tel:'.$hostelry['Telefoon'].'" class="btn btn-link">
+                                        '.$hostelry['Telefoon'].'
+                                    </a>
+                                </td> 
                                 <td>'.$hostelry['Coordinaten'].'</td> 
                                 <td>
                                     <a href="edit.php?id='.$hostelry['ID'].'" class="btn btn-warning">
