@@ -25,10 +25,10 @@
     <input type="password" id="password-confirm" name="password-confirm" class="form-control" />
   </div>
 
-  <!-- <div class="form-outline mb-4">
-    <label class="form-label" for="telephone">Telefoon nummer</label>
-    <input type="text" id="telephone" name="telephone" class="form-control" />
-  </div> -->
+  <div class="form-outline mb-4">
+    <label class="form-label" for="phonenumber">Telefoon nummer</label>
+    <input type="text" id="phonenumber" name="phonenumber" class="form-control" />
+  </div>
 
   <button type="submit" class="btn btn-primary btn-block mb-4">Maak account aan</button>
 </form>

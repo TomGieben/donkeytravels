@@ -1,7 +1,7 @@
 <?php include('../layouts/layout.php'); ?>
 
 <div class="container">
-<form action="/controllers/auth/loginController.php" method="post">
+<form action="/controllers/customers/loginController.php" method="post">
   <input type="hidden" name="function" value="create"/>
 
   <div class="form-outline mb-4">
@@ -21,4 +21,3 @@
   </div>
 </form>
 </div>
-
