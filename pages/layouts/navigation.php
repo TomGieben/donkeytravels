@@ -16,7 +16,7 @@
 			<li><a onclick="redirect('status/index')" class="btn"><i class="fas fa-signal"></i> Statussen</a></li>
 			<li><a onclick="redirect()" class="btn"><i class="fas fa-book-atlas"></i> Boekingen</a></li>
 			<li><a onclick="redirect('hostelries/index')" class="btn"><i class="fas fa-house-chimney"></i> Herbergen</a></li>
-			<li><a onclick="redirect()" class="btn"><i class="fas fa-users"></i> Klanten</a></li>
+			<li><a onclick="redirect('klanten/index')" class="btn"><i class="fas fa-users"></i> Klanten</a></li>
 			<li><a onclick="redirect()" class="btn"><i class="fas fa-bed-front"></i> Overnachtingen</a></li>
 			<li><a onclick="redirect()" class="btn"><i class="fas fa-bagel"></i> Pauzeplaatsen</a></li>
 			<li><a onclick="redirect()" class="btn"><i class="fas fa-person-walking"></i> Tochten</a></li>

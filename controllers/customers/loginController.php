@@ -15,7 +15,7 @@
             if(password_verify($password, $user["Wachtwoord"])) {
                 $_SESSION['customers'] = true;
                 $_SESSION['user'] = $user;
-
+ 
                 setWith('msg', $msg);
                 redirect('welcome');
             } else {
