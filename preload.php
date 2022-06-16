@@ -28,11 +28,11 @@ foreach($exepctions as $exception) {
     }
 }
 
-// if($check) {
-//     if(!auth()) {
-//         redirect('auth/login');
-//     }    
-// }
+if($check) {
+    if(!auth()) {
+        redirect('auth/login');
+    }    
+}
 // Set page name
 $output = ob_get_contents();
 if (ob_get_length() > 0) { ob_end_clean(); }
