@@ -32,14 +32,7 @@
                                 <td>".$klant['Naam']."</td>
                                 <td>".$klant['Email']."</td>
                                 <td>".$klant['Telefoon']."</td> 
-                            ";
-                        echo "<td>";
-                            if($klant['Verwijderbaar']) {
-                                echo "<i class='fas fa-check text-success'></i>";
-                            } else {
-                                echo "<i class='fas fa-times text-danger'></i>";
-                            }
-                        echo "</td>"; 
+                            "; 
                         echo '
                             <td>
                                 <a href="edit.php?id='.$klant['ID'].'" class="btn btn-warning">
