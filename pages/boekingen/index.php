@@ -1,6 +1,6 @@
 <?php 
     include('../layouts/layout.php');
-    $stmt = $pdo->prepare("SELECT * FROM Boekingen");
+    $stmt = $pdo->prepare("SELECT * FROM Boekingen INNER JOIN Tochten ON Boekingen.TochtID = Tochten.ID LEFT JOIN Statussen ON Boekingen.StatusID = Statussen.ID");
     $stmt->execute();
 ?>
 
@@ -15,7 +15,7 @@
                 <th scope="col">StartDatum</th>
                 <th scope="col">EindDatum</th>
                 <th scope="col">PIN Code</th>
-                <th scope="col">Roete</th>
+                <th scope="col">Route</th>
                 <th scope="col">Status</th>
                 <th scope="col">Opties</th>
             </tr>
@@ -27,8 +27,8 @@
                     {
                         echo "
                             <tr>
-                                <td>".$status['StartDatum']."</td>
-                                <td>".$status['EindDatum']."</td>  
+                                <td>".date('d-m-Y', strtotime($status['StartDatum']))."</td>
+                                <td>".date('d-m-Y', strtotime($status['EindDatum']))."</td>  
                                     <td>
                                         <div class='btn-group'>
                                             <button class='btn btn-info' onclick='ShowCode(".$status['ID'].")'>
@@ -39,8 +39,8 @@
                                             </div>
                                         </div>
                                     </td>
-                                <td>".$status['TochtID']."</td>
-                                <td>".$status['StatusID']."</td> 
+                                <td>".$status['Route']."</td>
+                                <td>".$status['Status']."</td> 
                             ";
                         echo '
                             <td>

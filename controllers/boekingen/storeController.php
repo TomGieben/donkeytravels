@@ -5,28 +5,21 @@
     $datetime = date('Y-m-d H:i:s');
     $msg = 'Succesvol toegevoegd.';
 
-    if(!isset($_POST['StartDatum'])) {
+    if(empty($_POST['Datum'])) {
         $create = false;
         $msg = 'Je hebt geen Datum ingevuld.';
-    }
-    else
-    {
-        $create = true;
     }
 
     if(!isset($_POST['Tocht'])) {
         $create = false;
         $msg = 'Je hebt geen Tocht ingevuld.';
     }
-    else
-    {
-        $create = true;
-    }
 
     if($create) {
-
-        $Startdatum = $_POST['Datum'];
-        $Einddatum = $Startdatum;
+        $start_date = $_POST['Datum'];  
+        $date = strtotime($start_date);
+        $date = strtotime("+7 day", $date);
+        $Einddatum = date('Y-m-d H:i:s', $date);
         $Pincode = 0000;
         $route = $_POST['Tocht'];
         $KlantID = 1;
@@ -34,7 +27,7 @@
 
         $sql = "INSERT INTO boekingen (StartDatum, EindDatum, PINcode, TochtID, KlantID, StatusID)
         VALUES (?, ?, ?, ?, ?, ?);";
-        $pdo->prepare($sql)->execute([$Startdatum, $Einddatum, $Pincode, $route, $KlantID, $status]);
+        $pdo->prepare($sql)->execute([$_POST['Datum'], $Einddatum, $Pincode, $route, $KlantID, $status]);
 
         setWith('msg', $msg);
         redirect('boekingen/index');
