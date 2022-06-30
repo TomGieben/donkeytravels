@@ -20,13 +20,16 @@
         $date = strtotime($start_date);
         $date = strtotime("+7 day", $date);
         $Einddatum = date('Y-m-d H:i:s', $date);
-        $Pincode = 0000;
+        $Pincode = randStr();
         $route = $_POST['Tocht'];
         $KlantID = 1;
         $status = 1;
 
+        // var_dump($start_date, $Einddatum, $Pincode, $route, $KlantID, $status);
+        // die;
+
         $sql = "UPDATE boekingen SET StartDatum = ?, EindDatum = ?, PINcode = ?, TochtID = ?, KlantID = ?, StatusID = ? WHERE ID = ?;";
-        $pdo->prepare($sql)->execute([$_POST['Datum'], $Einddatum, $Pincode, $route, $KlantID, $status]);
+        $pdo->prepare($sql)->execute([$_POST['Datum'], $Einddatum, $Pincode, $route, $KlantID, $status, $_GET['id']]);
 
         setWith('msg', $msg);
         redirect('boekingen/index');

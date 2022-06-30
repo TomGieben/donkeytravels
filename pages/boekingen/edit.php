@@ -1,13 +1,12 @@
 <?php 
     include('../layouts/layout.php'); 
-    $stmt = $pdo->prepare("SELECT * FROM Boekingen WHERE ID = ?;");
-    $stmt->execute([$_GET['id']]);
-    $status = $stmt->fetch(PDO::FETCH_ASSOC)
+    $stmt = $pdo->prepare("SELECT * FROM Tochten");
+    $stmt->execute();
 ?>
 
 <div class="container"> 
     <?php getWith('msg') ?>
-    <form action="\controllers\boekingen\updateController.php" method="post">
+    <form action="\controllers\boekingen\updateController.php?id=<?php echo $_GET['id']; ?>" method="post">
 
 <!-- later moeten we weer de controller action gebruiken -->    
 
@@ -20,10 +19,10 @@
         <label class="form-label" for="status">Tocht</label>
             <select class="form-control" name="Tocht">
                 <option selected disabled>Selecteer Tocht</option> 
-                <?php while($Tocht = $stmt->fetch(PDO::FETCH_ASSOC))
-                {
+                <?php while($Tocht = $stmt->fetch(PDO::FETCH_ASSOC)){
                     echo "<option value='".$Tocht['ID']."'>".$Tocht['Route']."</option>";    
-                } 
+                    
+                            } 
                 ?>
             </select>
         </div>

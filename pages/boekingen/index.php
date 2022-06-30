@@ -5,6 +5,9 @@
 ?>
 
 <div class="container">
+    <h1>
+        <b>Boekingen</b>
+    </h1>
     <?php getWith('msg') ?>
     <a onclick='redirect("boekingen/create")' class='btn btn-success' style="margin: 1em;">
         <i class='fas fa-plus'></i>
@@ -56,9 +59,11 @@
                     }
                 }
             ?>
-        </tbody>
+
+        </tbody>        
     </table>
 </div>
+    
 <script>
     function ShowCode(ID)
     {

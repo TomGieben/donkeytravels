@@ -20,6 +20,7 @@
 			<li><a onclick="redirect()" class="btn"><i class="fas fa-bed-front"></i> Overnachtingen</a></li>
 			<li><a onclick="redirect()" class="btn"><i class="fas fa-bagel"></i> Pauzeplaatsen</a></li>
 			<li><a onclick="redirect()" class="btn"><i class="fas fa-person-walking"></i> Tochten</a></li>
+      <li><a onclick="redirect('account/index')" class="btn"><i class="fas fa-user"></i> Account</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <?php
