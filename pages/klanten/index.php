@@ -9,7 +9,7 @@
         <b>Klanten</b>
     </h1>
     <?php getWith('msg') ?>
-    <a onclick='redirect("klanten/create.php")' class='btn btn-success' style="margin-bottom: 1em;">
+    <a onclick='redirect("klanten/create")' class='btn btn-success' style="margin-bottom: 1em;">
         <i class='fas fa-plus'></i>
     </a>
     <table class="table">
