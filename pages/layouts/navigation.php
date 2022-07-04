@@ -18,8 +18,8 @@
 			<li><a onclick="redirect('hostelries/index')" class="btn"><i class="fas fa-house-chimney"></i> Herbergen</a></li>
 			<li><a onclick="redirect('klanten/index')" class="btn"><i class="fas fa-users"></i> Klanten</a></li>
 			<li><a onclick="redirect()" class="btn"><i class="fas fa-bed-front"></i> Overnachtingen</a></li>
-			<li><a onclick="redirect()" class="btn"><i class="fas fa-bagel"></i> Pauzeplaatsen</a></li>
-			<li><a onclick="redirect()" class="btn"><i class="fas fa-person-walking"></i> Tochten</a></li>
+			<li><a onclick="redirect('pauzeplaatsen/index')" class="btn"><i class="fas fa-bagel"></i> Pauzeplaatsen</a></li>
+			<li><a onclick="redirect('tochten/index')" class="btn"><i class="fas fa-person-walking"></i> Tochten</a></li>
       <li><a onclick="redirect('account/index')" class="btn"><i class="fas fa-user"></i> Account</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
