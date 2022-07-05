@@ -7,19 +7,10 @@
         $confirmPassword = $_POST['password-confirm'];
         $email = $_POST['email'];
         $datetime = date('Y-m-d H:i:s');
-        $msg = 'Succesvol geregistreerd.';
-        $stmt = $pdo->prepare("SELECT Email FROM medewerkers WHERE Email = ?;");
-        $stmt->execute([$email]);
-        $users = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if($users) {
-            foreach($users as $user) {
-                if($user == $email) {
-                    $msg = 'Je kunt deze email niet meer gebruiken.';
-                    $create = false;
-                }
-            }
-        }
+        $msg = 'Succesvol gewijzigd.';
+        $stmt = $pdo->prepare("SELECT * FROM medewerkers WHERE ID = ?;");
+        $stmt->execute([$_GET['id']]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($password !== $confirmPassword) {
             $msg = 'Wachtwoorden komen niet overeen.';
@@ -32,16 +23,17 @@
         }
 
         if($create) {
-            $sql = "INSERT INTO `medewerkers` (Email, WachtwoordHash, Gewijzigd) VALUES (?,?,?);";
+            $sql = "UPDATE `medewerkers` SET Email = ?, WachtwoordHash = ?, Gewijzigd = ? WHERE ID = ?";
             $pdo->prepare($sql)->execute([
                 $email, 
                 password_hash($password, PASSWORD_ARGON2ID), 
-                $datetime
+                $datetime,
+                $user['ID']
             ]);
         }
 
         setWith('msg', $msg);
-        redirect('welcome');
+        redirect('account/index');
     } else {
-        redirect('auth/register');
+        redirect('account/index');
     }

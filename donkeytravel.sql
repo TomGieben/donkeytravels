@@ -12,16 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Databasestructuur van donkeytravel wordt geschreven
-CREATE DATABASE IF NOT EXISTS `donkeytravel` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `donkeytravel`;
-
 -- Structuur van  tabel donkeytravel.boekingen wordt geschreven
 CREATE TABLE IF NOT EXISTS `boekingen` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Startdatum` datetime(6) NOT NULL,
-  `Einddatum` datetime(6) NOT NULL,
+  `EindDatum` datetime(6) DEFAULT NULL,
+  `StartDatum` datetime(6) NOT NULL,
   `PINcode` int(11) NOT NULL,
   `TochtID` int(11) NOT NULL,
   `KlantID` int(11) NOT NULL,
@@ -30,9 +25,14 @@ CREATE TABLE IF NOT EXISTS `boekingen` (
   KEY `TochtID` (`TochtID`),
   KEY `KlantID` (`KlantID`),
   KEY `StatusID` (`StatusID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.boekingen: 0 rows
+/*!40000 ALTER TABLE `boekingen` DISABLE KEYS */;
+INSERT INTO `boekingen` (`ID`, `EindDatum`, `StartDatum`, `PINcode`, `TochtID`, `KlantID`, `StatusID`) VALUES
+	(1, '2022-07-04 20:55:27.000000', '2022-07-04 20:55:28.000000', 1234, 1, 1, 1),
+	(2, '2022-07-04 20:55:37.000000', '2022-07-04 20:55:38.000000', 3657, 1, 2, 1);
+/*!40000 ALTER TABLE `boekingen` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.herbergen wordt geschreven
 CREATE TABLE IF NOT EXISTS `herbergen` (
@@ -44,9 +44,14 @@ CREATE TABLE IF NOT EXISTS `herbergen` (
   `Coordinaten` varchar(20) NOT NULL,
   `Gewijzigd` timestamp NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.herbergen: 0 rows
+/*!40000 ALTER TABLE `herbergen` DISABLE KEYS */;
+INSERT INTO `herbergen` (`ID`, `Naam`, `Adres`, `Email`, `Telefoon`, `Coordinaten`, `Gewijzigd`) VALUES
+	(1, 'De ezel', 'Kerkstraat 2', 'ezel@info.nl', '0612345678', '0', '2022-07-04 20:56:28'),
+	(2, 'De zwaan', 'Molenstraat 67', 'dezwaam@info.nl', '0687654321', '0', '2022-07-04 20:57:14');
+/*!40000 ALTER TABLE `herbergen` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.klanten wordt geschreven
 CREATE TABLE IF NOT EXISTS `klanten` (
@@ -57,9 +62,14 @@ CREATE TABLE IF NOT EXISTS `klanten` (
   `Wachtwoord` varchar(100) NOT NULL,
   `Gewijzigd` timestamp NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.klanten: 1 rows
+/*!40000 ALTER TABLE `klanten` DISABLE KEYS */;
+INSERT INTO `klanten` (`ID`, `Naam`, `Email`, `Telefoon`, `Wachtwoord`, `Gewijzigd`) VALUES
+	(1, 'Jovey', 'jovey@gmail.com', '0612345678', 'test', '2022-07-04 09:34:13'),
+	(2, 'Daan', 'daan@gmail.com', '0687654321', 'test', '2022-07-04 20:57:38');
+/*!40000 ALTER TABLE `klanten` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.medewerkers wordt geschreven
 CREATE TABLE IF NOT EXISTS `medewerkers` (
@@ -68,9 +78,13 @@ CREATE TABLE IF NOT EXISTS `medewerkers` (
   `WachtwoordHash` text,
   `Gewijzigd` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.medewerkers: ~1 rows (ongeveer)
+/*!40000 ALTER TABLE `medewerkers` DISABLE KEYS */;
+INSERT INTO `medewerkers` (`ID`, `Email`, `WachtwoordHash`, `Gewijzigd`) VALUES
+	(1, 'tom@test.nl', '$argon2id$v=19$m=65536,t=4,p=1$SkRtYkdlRk9aWHZjUGw5RQ$psouwcoQohhap/FukPBsT489OR3KRAVmsisDgX5IsY8', '2022-07-04 07:23:04');
+/*!40000 ALTER TABLE `medewerkers` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.overnachtingen wordt geschreven
 CREATE TABLE IF NOT EXISTS `overnachtingen` (
@@ -82,9 +96,14 @@ CREATE TABLE IF NOT EXISTS `overnachtingen` (
   KEY `BoekingID` (`BoekingID`),
   KEY `HerbergID` (`HerbergID`),
   KEY `StatusID` (`StatusID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.overnachtingen: 0 rows
+/*!40000 ALTER TABLE `overnachtingen` DISABLE KEYS */;
+INSERT INTO `overnachtingen` (`ID`, `BoekingID`, `HerbergID`, `StatusID`) VALUES
+	(1, 1, 1, 2),
+	(2, 2, 2, 1);
+/*!40000 ALTER TABLE `overnachtingen` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.pauzeplaatsen wordt geschreven
 CREATE TABLE IF NOT EXISTS `pauzeplaatsen` (
@@ -96,9 +115,14 @@ CREATE TABLE IF NOT EXISTS `pauzeplaatsen` (
   KEY `BoekingID` (`BoekingID`),
   KEY `RestaurantID` (`RestaurantID`),
   KEY `StatusID` (`StatusID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.pauzeplaatsen: 0 rows
+/*!40000 ALTER TABLE `pauzeplaatsen` DISABLE KEYS */;
+INSERT INTO `pauzeplaatsen` (`ID`, `BoekingID`, `RestaurantID`, `StatusID`) VALUES
+	(1, 1, 2, 1),
+	(2, 2, 1, 2);
+/*!40000 ALTER TABLE `pauzeplaatsen` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.restaurants wordt geschreven
 CREATE TABLE IF NOT EXISTS `restaurants` (
@@ -110,21 +134,31 @@ CREATE TABLE IF NOT EXISTS `restaurants` (
   `Coordinaten` varchar(20) NOT NULL,
   `Gewijzigd` timestamp NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.restaurants: 0 rows
+/*!40000 ALTER TABLE `restaurants` DISABLE KEYS */;
+INSERT INTO `restaurants` (`ID`, `Naam`, `Adres`, `Email`, `Telefoon`, `Coordinaten`, `Gewijzigd`) VALUES
+	(1, 'De Kip(sate)', 'Schoolstraat 34', 'dekip@info.nl', '0612345678', '0', '2022-07-04 20:59:11'),
+	(2, 'De Biefstuk', 'Bakkersstraat 50', 'biefstuk@info.nl', '0687654321', '0', '2022-07-04 20:59:45');
+/*!40000 ALTER TABLE `restaurants` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.statussen wordt geschreven
 CREATE TABLE IF NOT EXISTS `statussen` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Statuscode` tinyint(4) NOT NULL,
+  `Statuscode` int(11) NOT NULL DEFAULT '0',
   `Status` varchar(40) NOT NULL,
   `Verwijderbaar` tinyint(4) NOT NULL,
   `PIN` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.statussen: 1 rows
+/*!40000 ALTER TABLE `statussen` DISABLE KEYS */;
+INSERT INTO `statussen` (`ID`, `Statuscode`, `Status`, `Verwijderbaar`, `PIN`) VALUES
+	(1, 1234, 'Actief', 1, 5634),
+	(2, 4321, 'Inactief', 1, 1234);
+/*!40000 ALTER TABLE `statussen` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.tochten wordt geschreven
 CREATE TABLE IF NOT EXISTS `tochten` (
@@ -133,9 +167,14 @@ CREATE TABLE IF NOT EXISTS `tochten` (
   `Route` varchar(50) NOT NULL,
   `Dagen` int(11) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.tochten: 1 rows
+/*!40000 ALTER TABLE `tochten` DISABLE KEYS */;
+INSERT INTO `tochten` (`ID`, `Omschrijving`, `Route`, `Dagen`) VALUES
+	(1, 'Dit is een mooie tocht', 'Amsterdam', 6),
+	(2, 'Dit is een mooie tocht door Rotterdam', 'Rotterdam', 7);
+/*!40000 ALTER TABLE `tochten` ENABLE KEYS */;
 
 -- Structuur van  tabel donkeytravel.trackers wordt geschreven
 CREATE TABLE IF NOT EXISTS `trackers` (
@@ -147,7 +186,9 @@ CREATE TABLE IF NOT EXISTS `trackers` (
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- Data exporteren was gedeselecteerd
+-- Dumpen data van tabel donkeytravel.trackers: 0 rows
+/*!40000 ALTER TABLE `trackers` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trackers` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;

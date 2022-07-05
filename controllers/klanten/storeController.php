@@ -5,7 +5,7 @@
     $datetime = date('Y-m-d H:i:s');
     $msg = 'Succesvol toegevoegd.';
 
-    if(isset($_POST['Email'])) {
+    if(isset($_POST['email'])) {
         $stmt = $pdo->prepare("SELECT * FROM klanten WHERE Naam = ?;");
         $stmt->execute([$_POST['naam']]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
